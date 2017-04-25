@@ -1,0 +1,27 @@
+# Built application files
+build/
+
+# Local configuration file
+local.properties
+
+# gradle files
+.gradle
+
+# idea files
+*.iml
+.idea/workspace.xml
+.idea/libraries
+dea/tasks.xml
+.idea/.name
+.idea/compiler.xml
+.idea/copyright/profiles_settings.xml
+.idea/encodings.xml
+.idea/misc.xml
+.idea/modules.xml
+.idea/scopes/scope_settings.xml
+.idea/vcs.xml
+
+# others
+.DS_Store
+captures
+.externalNativeBuild
