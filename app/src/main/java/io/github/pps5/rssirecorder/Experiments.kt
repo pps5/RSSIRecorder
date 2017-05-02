@@ -10,17 +10,11 @@ import java.util.*
  */
 
 @DatabaseTable(tableName = "experiments_info")
-class Experiments(id: Int, startDate: Date, positionId: Int) {
-
-    @DatabaseField(columnName = "id", generatedId = true, canBeNull = false)
-    @Suppress("unused")
-    var id: Int = id
-
-    @DatabaseField(columnName = "start_date", dataType = DataType.DATE_STRING, canBeNull = false)
-    @Suppress("unused")
-    var startDate: Date = startDate
-
-    @DatabaseField(columnName = "position_id", dataType = DataType.INTEGER, canBeNull = false)
-    @Suppress("unused")
-    var positionId: Int = positionId
-}
+class Experiments(@DatabaseField(columnName = "id", generatedId = true, canBeNull = false)
+                  @Suppress("unused") var id: Int = 0,
+                  @DatabaseField(columnName = "start_date", dataType = DataType.DATE_STRING, canBeNull = false)
+                  @Suppress("unused") var startDate: Date = Date(),
+                  @DatabaseField(columnName = "position_id", dataType = DataType.INTEGER, canBeNull = false)
+                  @Suppress("unused") var positionId: Int = 0,
+                  @DatabaseField(columnName = "direction", dataType = DataType.INTEGER, canBeNull = false)
+                  @Suppress("unused") var direction: Int = -1)

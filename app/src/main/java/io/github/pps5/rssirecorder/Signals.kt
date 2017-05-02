@@ -10,21 +10,11 @@ import java.util.Date
  */
 
 @DatabaseTable(tableName = "Signals")
-class Signals(id: Int, startDate: Date, rssi: Int, experiments: Experiments) {
-
-    @DatabaseField(columnName = "id", generatedId = true, dataType = DataType.INTEGER, canBeNull = false)
-    @Suppress("unused")
-    var id: Int = id
-
-    @DatabaseField(columnName = "receive_date", dataType = DataType.DATE_STRING, canBeNull = false)
-    @Suppress("unused")
-    var receiveDate: Date = startDate
-
-    @DatabaseField(columnName = "rssi", dataType = DataType.INTEGER, canBeNull = false)
-    @Suppress("unused")
-    var rssi: Int = rssi
-
-    @DatabaseField(columnName = "experiments_id", dataType = DataType.INTEGER, canBeNull = false, foreign = true)
-    @Suppress("unused")
-    var experiments: Experiments = experiments
-}
+class Signals(@DatabaseField(columnName = "id", generatedId = true, dataType = DataType.INTEGER, canBeNull = false)
+              @Suppress("unused") var id: Int = 0,
+              @DatabaseField(columnName = "receive_date", dataType = DataType.DATE_STRING, canBeNull = false)
+              @Suppress("unused") var receiveDate: Date = Date(),
+              @DatabaseField(columnName = "rssi", dataType = DataType.INTEGER, canBeNull = false)
+              @Suppress("unused") var rssi: Int = 0,
+              @DatabaseField(columnName = "experiments_id", canBeNull = false, foreign = true)
+              @Suppress("unused") var experiments: Experiments? = null)
