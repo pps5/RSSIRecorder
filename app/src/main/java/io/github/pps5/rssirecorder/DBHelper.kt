@@ -21,6 +21,14 @@ class DBHelper(context: Context) : OrmLiteSqliteOpenHelper(context, DATABASE_FIL
     companion object {
         const val DATABASE_FILE_NAME = "2017-05-03.sqlite3"
         const val DATABASE_VERSION = 1
+        var dbHelper: DBHelper? = null
+
+        fun getDBHelper(context: Context): DBHelper {
+            if (dbHelper == null) {
+                dbHelper = DBHelper(context)
+            }
+            return dbHelper as DBHelper
+        }
     }
 
     override fun onCreate(p0: SQLiteDatabase?, p1: ConnectionSource?) {
