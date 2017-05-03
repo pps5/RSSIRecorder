@@ -9,7 +9,7 @@ import java.util.Date
  * Created by inab on 4/25/17.
  */
 
-@DatabaseTable(tableName = "Signals")
+@DatabaseTable(tableName = "signals")
 class Signals(@DatabaseField(columnName = "id", generatedId = true, dataType = DataType.INTEGER, canBeNull = false)
               @Suppress("unused") var id: Int = 0,
               @DatabaseField(columnName = "receive_date", dataType = DataType.DATE_STRING, canBeNull = false)
