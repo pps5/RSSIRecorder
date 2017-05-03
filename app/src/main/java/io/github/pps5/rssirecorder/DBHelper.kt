@@ -2,6 +2,7 @@ package io.github.pps5.rssirecorder
 
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
+import android.os.Environment
 import android.os.Handler
 import android.os.Looper
 import android.widget.Toast
@@ -14,11 +15,11 @@ import java.sql.SQLException
  * Created by inab on 4/25/17.
  */
 
-class DBHelper(context: Context) : OrmLiteSqliteOpenHelper(context, DATABASE_FILE_NAME, null, DATABASE_VERSION) {
-
-    val context: Context = context
+class DBHelper(val context: Context)
+    : OrmLiteSqliteOpenHelper(context, "$DATABASE_PATH/$DATABASE_FILE_NAME", null, DATABASE_VERSION) {
 
     companion object {
+        val DATABASE_PATH: String = Environment.getExternalStorageDirectory().absolutePath
         const val DATABASE_FILE_NAME = "2017-05-03.sqlite3"
         const val DATABASE_VERSION = 1
         var dbHelper: DBHelper? = null
