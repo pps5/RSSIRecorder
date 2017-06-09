@@ -14,7 +14,9 @@ class Signals(@DatabaseField(columnName = "id", generatedId = true, dataType = D
               @Suppress("unused") var id: Int = 0,
               @DatabaseField(columnName = "receive_date", dataType = DataType.DATE_STRING, canBeNull = false)
               @Suppress("unused") var receiveDate: Date = Date(),
+              @DatabaseField(columnName = "mac", dataType = DataType.STRING, canBeNull = false)
+              @Suppress("unused") var mac: String = "",
               @DatabaseField(columnName = "rssi", dataType = DataType.INTEGER, canBeNull = false)
               @Suppress("unused") var rssi: Int = 0,
-              @DatabaseField(columnName = "experiments_id", canBeNull = false, foreign = true)
+              @DatabaseField(columnName = "experiments_id", canBeNull = false, foreign = true, columnDefinition = "integer references experiments_info(id)")
               @Suppress("unused") var experiments: Experiments? = null)

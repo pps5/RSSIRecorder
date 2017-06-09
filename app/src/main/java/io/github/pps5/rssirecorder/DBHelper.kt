@@ -10,6 +10,7 @@ import com.j256.ormlite.android.apptools.OrmLiteSqliteOpenHelper
 import com.j256.ormlite.support.ConnectionSource
 import com.j256.ormlite.table.TableUtils
 import java.sql.SQLException
+import java.util.*
 
 /**
  * Created by inab on 4/25/17.
@@ -33,6 +34,7 @@ class DBHelper(val context: Context)
     }
 
     override fun onCreate(p0: SQLiteDatabase?, p1: ConnectionSource?) {
+        p0?.execSQL("PRAGMA foreign_keys=ON;")
         createTable(p0, p1, "Experiments", Experiments::class.java)
         createTable(p0, p1, "Signals", Signals::class.java)
     }
